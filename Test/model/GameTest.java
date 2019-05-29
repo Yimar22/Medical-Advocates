@@ -1,5 +1,6 @@
 package model;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,41 +17,42 @@ import org.junit.jupiter.api.Test;
 
 class GameTest {
 
-//________________________________________________ATTRIBUTES________________________________________________________________
+//_______________________________________________________________________________________________________________
 
 	private Game game;
 
-//________________________________________________STAGES________________________________________________________________
+//Scenarys________________________________________________________________________________________________________________
 	
-	private void stage1() {
+	private void setUpScenary1() {
 		
 	}
 	
-	private void stage2() {
+	private void setUpScenary2() {
 		
 		try {
 			game = new Game();
+		//	game.addPlayer(new Player("Juan", 100));
 		} catch (IOException e) {
 			fail("EXCEPTION THROWN");
 			e.printStackTrace();
 		}
 		
+		assertNotNull("The game is null and it was not created", game);
+		
 	}
 	
-//________________________________________________TEST METHODS________________________________________________________________
+//Test methods________________________________________________________________________________________________________________
 	
 	@Test
 	public void testGame() {
 		
-		stage1();
-		
+		setUpScenary1();
 		try {
 			game = new Game();
 		} catch (IOException e) {
 			fail("EXCEPTION THROWN");
 			e.printStackTrace();
 		}
-		
 		assertTrue("The game was not created correctly", game != null);
 		
 	}
@@ -62,7 +64,7 @@ class GameTest {
 	//error
 	public void testGeneratePlayerTree() {
 		
-		stage2();
+		setUpScenary2();
 		
 		FileReader fr;
 		BufferedReader br;
@@ -109,7 +111,7 @@ class GameTest {
 	@Test
 	public void testWritePlayer() {
 		
-		stage2();
+		setUpScenary2();
 		
 		Player player = new Player("prueba1", 1000);
 		FileReader fr;
@@ -152,7 +154,7 @@ class GameTest {
 	@Test
 	public void testLoadPlayers() {
 		
-		stage2();
+		setUpScenary2();
 		
 		try {
 			game.loadPlayers();
@@ -170,7 +172,7 @@ class GameTest {
 	@Test
 	public void testaddPlayer() {
 		
-		stage2();
+		setUpScenary2();
 		
 		Player player = new Player("prueba2", 1000);
 		game.addPlayer(player);
@@ -186,7 +188,7 @@ class GameTest {
 	@Test
 	public void testOrder() {
 		
-		stage2();
+		setUpScenary2();
 		
 		ArrayList<Player> list = game.order();
 		
@@ -208,7 +210,7 @@ class GameTest {
 	@Test
 	public void testOrderLevel() {
 		
-		stage2();
+		setUpScenary2();
 		
 		ArrayList<Difficulty> list = game.orderLevel();
 		
@@ -232,7 +234,7 @@ class GameTest {
 	@Test
 	public void testSortByNickName() {
 		
-		stage2();
+		setUpScenary2();
 		
 		ArrayList<Player> list = game.sortByNickName();
 		
@@ -256,7 +258,7 @@ class GameTest {
 	@Test
 	public void testSortLevelByDifficulty() {
 		
-		stage2();
+		setUpScenary2();
 		
 		ArrayList<Difficulty> list = game.sortLevelByDifficulty();
 		
@@ -280,7 +282,7 @@ class GameTest {
 	@Test
 	public void testSearchPlayer() {
 		
-		stage2();
+		setUpScenary2();
 		Player player = new Player("prueba 3", 50);
 		game.addPlayer(player);
 		
@@ -295,7 +297,7 @@ class GameTest {
 	@Test
 	public void testChooseRandomLevel() {
 		
-		stage2();
+		setUpScenary2();
 		Difficulty difficulty = game.chooseRandomLevel();
 		
 		assertTrue("the level was not choose", difficulty != null);

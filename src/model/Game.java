@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -19,7 +20,8 @@ import java.util.Random;
  *@version V0.1_2019
  */
 
-public class Game {
+@SuppressWarnings("serial")
+public class Game implements Serializable{
 
 	//Constants______________________________________________________________________________________________________________________________
 
@@ -39,8 +41,8 @@ public class Game {
 	 * @throws IOException 
 	 */
 	public Game() throws IOException {
-		generatePlayer();
 		generateDifficulty();
+		generatePlayer();
 		players = new ArrayList<Player>();
 	}
 
