@@ -14,7 +14,7 @@ public class MusicThread extends Thread{
 	@Override
 	public void run() {
 		
-		String path = "sounds/soundoforgan.mp3";
+		String path = "resources/sounds/soundoforgan.mp3";
 		Media media = new Media(new File(path).toURI().toString());
 		MediaPlayer mediaPlayer = new MediaPlayer(media);
 		mediaPlayer.setAutoPlay(true);
@@ -27,7 +27,7 @@ public class MusicThread extends Thread{
 			e.printStackTrace();
 		}
 		
-		run();
+	//	run();
 		
 		
 	}

@@ -11,6 +11,11 @@
             <Image url="@../../resources/images/backgroud.PNG" />
          </image>
       </ImageView>
+      <ImageView fx:id="laser" fitHeight="35.0" fitWidth="8.0" layoutX="291.0" layoutY="335.0">
+         <image>
+            <Image url="@../../resources/images/laser.png" />
+         </image>
+      </ImageView>
       <ImageView fx:id="ship" fitHeight="75.0" fitWidth="75.0" layoutX="258.0" layoutY="316.0">
          <image>
             <Image url="@../../resources/images/nave-removebg.png" />

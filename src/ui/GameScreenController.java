@@ -15,6 +15,7 @@ import model.HardLevel;
 import model.HardcoreLevel;
 import model.MediumLevel;
 import model.Player;
+import threads.AttackThread;
 
 
 
@@ -30,6 +31,9 @@ public class GameScreenController{
 	private ImageView user;
 
 	@FXML ImageView ship;
+	
+	@FXML
+	private ImageView laser; 
 
 	@FXML
 	private AnchorPane ap;
@@ -43,17 +47,7 @@ public class GameScreenController{
 
 	@FXML
 	void initialize() {
-		try {
-			game = new Game();
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-		}
 
-		difficulty = game.chooseRandomLevel();
-		System.out.println(difficulty.getDifficultylevel());
-		generateEnemies();
-		player = new Player("Prueba", 0);
 
 		/*String score = String.valueOf(player.getScore());
 		scoreLabel.setText(score);*/
@@ -95,8 +89,6 @@ public class GameScreenController{
 		ImageView image2;
 		Image i2;
 
-		ImageView image3;
-		Image i3;
 
 		if (difficulty.getDifficultylevel().equals(Difficultys.EASY)) {
 
@@ -217,12 +209,33 @@ public class GameScreenController{
 
 	}
 	
-/*	public void shoot(int delta) {
-		for(int i=0;i<weapons.size();i++) {
-			if(weapons.get(i).getLayoutX()<W) {
-				weapons.get(i).relocate(weapons.get(i).getLayoutX()+delta,weapons.get(i).getLayoutY());
-			}else weapons.remove(i);
-		}
+
+	public void shootThread() {
+		AttackThread st = new AttackThread(createLaser());
+		System.out.println(laser.getLayoutY());
+		st.start();
+		System.out.println(laser.getLayoutY());
+	}
+	
+
+	public ImageView createLaser() {
+		
+		laser = new ImageView();
+		laser.setLayoutX(laser.getLayoutX() + 22);
+		laser.setLayoutY(laser.getLayoutY() - 6);
+		
+		return laser;
+		
+	}
+	
+	public void shoot(ImageView laser) {
+		
+		laser.setLayoutY(laser.getLayoutY() - 5);
+			/*for(int i=0;i<laser.size();i++) {
+						if(laser.get(i).getLayoutX()<ap.getMaxWidth()) {
+							laser.get(i).relocate(laser.get(i).getLayoutX()+1,laser.get(i).getLayoutY());
+						}else laser.remove(i);
+					}*/
 	}
 	
 /*	public void preShoot() {
@@ -240,6 +253,14 @@ public class GameScreenController{
 
 	public AnchorPane getAp() {
 		return ap;
+	}
+
+	public ImageView getLaser() {
+		return laser;
+	}
+
+	public void setLaser(ImageView laser) {
+		this.laser = laser;
 	}
 
 

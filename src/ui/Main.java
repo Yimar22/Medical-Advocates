@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import threads.MusicThread;
 //_________________________________________________________________________________________________________________________________________
 /**
 * This class is the main
@@ -12,6 +13,8 @@ import javafx.stage.Stage;
 */
 public class Main extends Application{
 	public static void main(String[] args) {
+		MusicThread mt = new MusicThread();
+		mt.start();
 		launch(args);
 	}
 	@Override

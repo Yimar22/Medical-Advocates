@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
+import exceptions.NickNameException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -93,23 +93,30 @@ public class EnterShipScreenController {
 						e1.printStackTrace();
 					}
 				}else if(e.getCode().equals(KeyCode.SPACE)) {
-					ImageView aLaser = new ImageView(laserImage);
+					gc.shootThread();
+				}else {
+					try {
+					//	String key = String.valueOf(e.getCode());
+						throw new NickNameException();
+					} catch (NickNameException e1) {
+						System.out.println(e1.getMessage());
+						
+					}
+				}
+				/*	ImageView aLaser = new ImageView(laserImage);
 					Node neLaser = aLaser;
 					neLaser.relocate(gc.getShip().getLayoutX()+gc.getShip().getBoundsInLocal().getWidth(), gc.getShip().getLayoutY());
 					laser.add(neLaser);
 					gc.getAp().getChildren().add(neLaser);
-					for(int i=0;i<laser.size();i++) {
-						if(laser.get(i).getLayoutX()<width) {
-							laser.get(i).relocate(laser.get(i).getLayoutX()+1,laser.get(i).getLayoutY());
-						}else laser.remove(i);
-					}
+					gc.shoot(laser);
+				*/
 
 				/*else if(e.getCode().equals(KeyCode.L)||e.getCode().equals(KeyCode.Q)) {
 					atack = new AtackThread(gc);
 					atack.start();
 				}*/
 
-			}
+			
 			}
 		});
 
