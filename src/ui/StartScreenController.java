@@ -10,7 +10,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Game;
 
 public class StartScreenController {
 
@@ -20,31 +19,28 @@ public class StartScreenController {
 	@FXML
 	private URL location;
 
-	private Game game;
 
 	@FXML
-	void showScores(ActionEvent event) {
-		/*FXMLLoader loader = new FXMLLoader(getClass().getResource("Scores.fxml"));
+	void showPlayerAndScores(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("InfoScreen.fxml"));
 		Parent root = loader.load();
-		ScoresScreenController ssc = loader.getController();
-		scc.setGame(this.game);
+		InfoScreenController isc = loader.getController();
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		stage.setTitle("BrickBreaker");
+		stage.setTitle("Medical Advocates");
 		stage.setScene(scene);
-		stage.show();*/
+		stage.show();
 	}
 
 	@FXML
 	void startGame(ActionEvent event) throws IOException {
 
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("DiagnosisScreen.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("PlayerScreen.fxml"));
 		Parent root = loader.load();
-		DiagnosisScreenController dsc = loader.getController();
-		dsc.setGame(this.game);
+		PlayerScreenController psc = loader.getController();
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		stage.setTitle("Medical-Advocates");
+		stage.setTitle("Medical Advocates");
 		stage.setScene(scene);
 		stage.show();
 
@@ -56,7 +52,4 @@ public class StartScreenController {
 
 	}
 
-	public void setGame(Game game) {
-		this.game = game;
-	}
 }

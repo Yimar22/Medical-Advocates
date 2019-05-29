@@ -34,6 +34,6 @@
          </image>
       </ImageView>
       <Label fx:id="lbDialog" layoutX="14.0" layoutY="39.0" prefHeight="60.0" prefWidth="53.0" text="Label" />
-      <Button layoutX="535.0" layoutY="359.0" mnemonicParsing="false" onAction="#startGame" style="-fx-background-radius: 80; -fx-background-color: lightblue; -fx-border-color: black; -fx-border-radius: 80;" text="Next" />
+      <Button layoutX="535.0" layoutY="359.0" mnemonicParsing="false" onAction="#nextScene" style="-fx-background-radius: 80; -fx-background-color: lightblue; -fx-border-color: black; -fx-border-radius: 80;" text="Next" />
    </children>
 </AnchorPane>

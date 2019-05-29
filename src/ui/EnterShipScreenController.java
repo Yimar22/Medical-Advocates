@@ -11,15 +11,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
 import javafx.stage.Stage;
-import model.Game;
-import threads.AtackThread;
 
 public class EnterShipScreenController {
 
@@ -74,19 +69,36 @@ public class EnterShipScreenController {
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
-				}else if(e.getCode().equals(KeyCode.L)||e.getCode().equals(KeyCode.Q)) {
+				}else if(e.getCode().equals(KeyCode.E)) {
+					try {
+						gc.movePlayer(5);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+				}else if(e.getCode().equals(KeyCode.Q)) {
+					try {
+						gc.movePlayer(6);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+				}else if(e.getCode().equals(KeyCode.SPACE)) {
+					gc.preShoot();
+				
+				/*else if(e.getCode().equals(KeyCode.L)||e.getCode().equals(KeyCode.Q)) {
 					atack = new AtackThread(gc);
 					atack.start();
-				}
+				}*/
 
+			}
 			}
 		});
 
-		stage.setTitle("Goblin Slayer");
+		stage.setTitle("Medical Advocates");
 		stage.setScene(scene);
-		stage.getIcons().add(new Image("icon.png"));
+		//stage.getIcons().add(new Image("icon.png"));
 		stage.show();
-
-
+		
 	}
+	
+
 }

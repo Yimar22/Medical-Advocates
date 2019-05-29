@@ -492,6 +492,45 @@ public class Game {
 		return -1;
 
 	}
+	
+	//_________________________________________________________________________________________________________________________________________
+
+		/**
+		 * searchPlayer method use binary searching to find a player in an ArrayList with an specific nickname <br><br>
+		 * <b>Pre: </b> The game must not be null <br><br>
+		 * <b>Pre: </b> The list must be ordered by nickname <br><br> 
+		 * @param nickName The nickname of the wanted player <br><br>
+		 * @return An integer that represents the position of the player in the ArrayList. If the player is not found it returns -1 <br><br>
+		 */
+
+		public int searchScore(int score) {
+
+			ArrayList<Player> list = sortByScore(this);
+
+			int index = -1;
+
+			int less = 0;
+			int higher = list.size() - 1;
+			int mid;
+
+			while(less <= higher) {
+
+				mid = (less + higher) / 2;
+
+				if (list.get(mid).getScore()< score) {
+					less = mid + 1;
+				}else if (list.get(mid).getScore()>score) {
+					higher = mid -1;
+				}else {
+					index = mid;
+					return index;
+				}
+
+			}
+
+			return -1;
+
+		}
 
 	//_________________________________________________________________________________________________________________________________________
 

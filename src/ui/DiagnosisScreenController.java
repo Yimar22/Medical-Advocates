@@ -15,7 +15,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import model.Game;
 
 
 
@@ -40,10 +39,6 @@ public class DiagnosisScreenController {
 	@FXML
 	private Label lbDialog2;
 
-	private Game game;
-	
-	private LaboratoryScreenController lsc;
-
 
 
 	@FXML
@@ -61,7 +56,7 @@ public class DiagnosisScreenController {
 
 		lbDialog.setText("La paciente \n esta siendo \n atacada por \n" + disease);;
 
-		Platform.runLater(new Runnable(){
+	/*	Platform.runLater(new Runnable(){
 
 			@Override
 			public void run() {
@@ -104,25 +99,21 @@ public class DiagnosisScreenController {
 				}
 
 			}});
-
+*/
 
 	}
 
 
-	 @FXML
-	    void nextScene(ActionEvent event) throws IOException {
-	      Parent root = FXMLLoader.load(getClass().getResource("LaboratoryScreen.fxml"));
-	        Scene scene = new Scene(root);
-	        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-	        appStage.setScene(scene);
-	        appStage.toFront();
-	        appStage.show();
+	@FXML
+	void nextScene(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("LaboratoryScreen.fxml"));
+		Scene scene = new Scene(root);
+		Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		appStage.setScene(scene);
+		appStage.toFront();
+		appStage.show();
 
-	    	
-	    }
 
-	public void setGame(Game game) {
-		this.game = game;
 	}
 
 }

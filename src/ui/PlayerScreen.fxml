@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.PlayerScreenController">
+   <children>
+      <ImageView fitHeight="302.0" fitWidth="422.0">
+         <image>
+            <Image url="@../../resources/images/fondo.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="120.0" layoutY="-30.0">
+         <image>
+            <Image url="@../../resources/images/logouno.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="nickNameText" disable="true" layoutX="8.0" layoutY="132.0" prefHeight="38.0" prefWidth="212.0" promptText="NickName" />
+      <Button layoutX="15.0" layoutY="14.0" mnemonicParsing="false" onAction="#backtScene" style="-fx-background-radius: 80; -fx-background-color: lightblue; -fx-border-color: black; -fx-border-radius: 80;" text="Back" />
+      <Button layoutX="194.0" layoutY="189.0" mnemonicParsing="false" onAction="#nextScene" prefHeight="51.0" prefWidth="105.0" style="-fx-background-radius: 80; -fx-background-color: lightblue; -fx-border-color: black; -fx-border-radius: 80;" text="Start" />
+      <Button layoutX="6.0" layoutY="187.0" mnemonicParsing="false" onAction="#newPlayer" prefHeight="27.0" prefWidth="105.0" style="-fx-background-radius: 80; -fx-background-color: lightblue; -fx-border-color: black; -fx-border-radius: 80;" text="New Player" />
+      <Button layoutX="6.0" layoutY="234.0" mnemonicParsing="false" onAction="#existingPlayer" prefHeight="27.0" prefWidth="105.0" style="-fx-background-radius: 80; -fx-background-color: lightblue; -fx-border-color: black; -fx-border-radius: 80;" text="Existing Player" />
+   </children>
+</AnchorPane>
