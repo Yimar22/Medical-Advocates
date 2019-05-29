@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.LaboratoryScreenController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0">
+         <image>
+            <Image url="@../../resources/images/laboratorio.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="user" fitHeight="321.0" fitWidth="294.0" layoutX="101.0" layoutY="79.0">
+         <image>
+            <Image url="@../../resources/images/asistente-removebg.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="105.0" fitWidth="114.0" layoutX="-13.0" layoutY="27.0">
+         <image>
+            <Image url="@../../resources/images/cuadro-de-dialogo-22846-removebg.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="354.0" fitWidth="321.0" layoutX="-60.0" layoutY="56.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-translate-z: 0;">
+         <image>
+            <Image url="@../../resources/images/doctor-removebg.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ship" fitHeight="200.0" fitWidth="167.0" layoutX="433.0" layoutY="186.0">
+         <image>
+            <Image url="@../../resources/images/nave-removebg.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lbDialog" layoutX="14.0" layoutY="39.0" prefHeight="60.0" prefWidth="53.0" text="Label" />
+      <Button layoutX="535.0" layoutY="359.0" mnemonicParsing="false" onAction="#startGame" style="-fx-background-radius: 80; -fx-background-color: lightblue; -fx-border-color: black; -fx-border-radius: 80;" text="Next" />
+   </children>
+</AnchorPane>

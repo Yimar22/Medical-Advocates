@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.EnterShipScreenController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0">
+         <image>
+            <Image url="@../../resources/images/boca.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="user" fitHeight="41.0" fitWidth="71.0" layoutX="150.0" layoutY="280.0" style="-fx-rotate: 165;">
+         <image>
+            <Image url="@../../resources/images/asistente-removebg.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ship" fitHeight="55.0" fitWidth="62.0" layoutX="155.0" layoutY="269.0" style="-fx-rotate: 165;">
+         <image>
+            <Image url="@../../resources/images/nave-removebg.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
