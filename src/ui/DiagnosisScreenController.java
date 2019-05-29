@@ -39,11 +39,10 @@ public class DiagnosisScreenController {
 	@FXML
 	private Label lbDialog2;
 
-
+	String disease="";
 
 	@FXML
 	void initialize()  {
-		String disease="";
 		int ndisease = (int) Math.floor(Math.random()*2);
 		switch (ndisease) {
 		case 0:
@@ -54,54 +53,110 @@ public class DiagnosisScreenController {
 			break;
 		}
 
-		lbDialog.setText("La paciente \n esta siendo \n atacada por \n" + disease);;
-
-	/*	Platform.runLater(new Runnable(){
-
-			@Override
-			public void run() {
-				lbDialog2.setText("Debemos \n hacer algo!");
-
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-
-			}});
-
-		Platform.runLater(new Runnable(){
-
-			@Override
-			public void run() {
-
-				lbDialog.setText("Acompañame \n al laboratorio");
-
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-
-			}});
-
-		Platform.runLater(new Runnable(){
-
-			@Override
-			public void run() {
-
-				lbDialog2.setText("Vamos!!");
-
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-
-			}});
-*/
-
+		dialogs();
 	}
+
+	public void dialogs() {
+		int count = 0;
+		for(int i = 0; i<4;i++) {
+		showDialogs(count);
+		count++;
+		}
+	
+	}
+	
+	public void showDialogs(int count) {
+		switch(count) {
+		case 0:
+			Platform.runLater(new Runnable() {
+				@Override
+				public void run() {
+					long time= System.currentTimeMillis();
+					lbDialog.setText("La paciente \n esta siendo \n atacada por \n " + disease);
+					long finall= System.currentTimeMillis();
+					System.out.println(time-finall);
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			});
+		
+			break;
+		case 1:
+			Platform.runLater(new Runnable() {
+				@Override
+				public void run() {
+					long time1= System.currentTimeMillis();
+					lbDialog2.setText("Debemos \n hacer algo!");
+					long finall1= System.currentTimeMillis();
+					System.out.println(time1-finall1);
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			});
+		
+			break;
+		case 2:
+			Platform.runLater(new Runnable() {
+				@Override
+				public void run() {
+					long time11= System.currentTimeMillis();
+					lbDialog.setText("Acompañame \n al laboratorio");
+					long finall11= System.currentTimeMillis();
+					System.out.println(time11-finall11);
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			});
+
+			break;
+		case 3:
+			Platform.runLater(new Runnable() {
+				@Override
+				public void run() {
+					long time111= System.currentTimeMillis();
+					lbDialog2.setText("Vamos!!");
+					long finall111= System.currentTimeMillis();
+					System.out.println(time111-finall111);
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			});
+			
+			break;
+
+		}
+	}
+	/*	
+public void run() {
+	Platform.runLater(new Runnable() {
+	    @Override
+	    public void run() {
+	//    dialogs();
+	    try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    }
+	});
+}*/
 
 
 	@FXML

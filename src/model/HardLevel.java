@@ -1,21 +1,19 @@
-//______________________________________________________PACKAGE___________________________________________________________
+//_________________________________________________________________________________________________________________
 
-/**
- *This package contains all the classes required to build the Space Invaders Game 
- */
+
 
 package model;
 
-//______________________________________________________THE CLASS__________________________________________________________
+//________________________________________________________________________________________________________________
 
 /**
- * This class defines the basic attributes of the easy levels of the game
+ * This class defines the basic attributes of the Hard difficulties of the game
  * @author Yimar Tamayo
  */
 
 public class HardLevel extends Difficulty {
 
-	//______________________________________________________ATTRIBUTES___________________________________________________________
+	//_________________________________________________________________________________________________________________
 
 	private Virus virus;
 	private Bacterium bacterium;
@@ -23,14 +21,15 @@ public class HardLevel extends Difficulty {
 	
 	private int amountOfBoss;
 
-	//______________________________________________________METHODS___________________________________________________________
+	//Methods_________________________________________________________________________________________________________________
 
-	/**
-	 * The constructor of the easy levels of the game <br><br>
-	 * @param name The name of the level <br><br>
-	 * @param difficulty The difficulty of the level <br><br>
-	 * @param amountOfNormalEnemies The amount of normal enemies in this level <br><br>
-	 */
+		/**
+		 * The constructor of the easy levels of the game <br><br>
+		 * @param name The name of the level <br><br>
+		 * @param difficulty The difficulty of the level <br><br>
+		 * @param amountOfEnemies The amount of enemies in this level <br><br>
+		 * @param amountOfBoss The amount of boss in this level <br><br>
+		 */
 
 	public HardLevel(Difficultys diffuculty, int amountOfEnemies, int amountOfBoss) {
 		super(diffuculty, 8);
@@ -43,9 +42,9 @@ public class HardLevel extends Difficulty {
 	//_________________________________________________________________________________________________________________________________________
 
 	/**
-	 * This method creates all the normal enemies that the level in going to have <br><br>
+	 * This method creates all the Virus that the level in going to have <br><br>
 	 * <b>Pre: </b> The level must not be null <br><br>
-	 * <b>Post: </b> The level has a linked list of normal enemies <br><br>
+	 * <b>Post: </b> The level has a linked list of Virus <br><br>
 	 */
 
 	public void createVirus() {
@@ -64,11 +63,10 @@ public class HardLevel extends Difficulty {
 	//_________________________________________________________________________________________________________________________________________
 
 	/**
-	 * This method creates all the normal enemies that the level in going to have <br><br>
+	 * This method creates all the Bacterium that the level in going to have <br><br>
 	 * <b>Pre: </b> The level must not be null <br><br>
-	 * <b>Post: </b> The level has a linked list of normal enemies <br><br>
+	 * <b>Post: </b> The level has a linked list of Bacterium  <br><br>
 	 */
-
 	public void createBacterium() {
 
 		bacterium = new Bacterium();
@@ -84,9 +82,9 @@ public class HardLevel extends Difficulty {
 	//_________________________________________________________________________________________________________________________________________
 
 	/**
-	 * This method creates all the normal enemies that the level in going to have <br><br>
+	 * This method creates all the Boss that the level in going to have <br><br>
 	 * <b>Pre: </b> The level must not be null <br><br>
-	 * <b>Post: </b> The level has a linked list of normal enemies <br><br>
+	 * <b>Post: </b> The level has a linked list of Boss <br><br>
 	 */
 
 	public void createBoss() {
@@ -100,6 +98,14 @@ public class HardLevel extends Difficulty {
 			i++;
 		}
 
+	}
+	
+	public int getAmountOfBoss() {
+		return amountOfBoss;
+	}
+
+	public void setAmountOfBoss(int amountOfBoss) {
+		this.amountOfBoss = amountOfBoss;
 	}
 	
 	//_________________________________________________________________________________________________________________________________________

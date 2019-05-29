@@ -1,9 +1,14 @@
 package model;
 
-
+//_________________________________________________________________________________________________________________________________________
+/**
+* This class defines the basic attributes of the difficulty of the game
+*@author Yimar Tamayo
+*@version V0.1_2019
+*/
 public class Difficulty implements Comparable<Difficulty> {
 
-	//______________________________________________________ATTRIBUTES___________________________________________________________
+	//Attributes_________________________________________________________________________________________________________________
 
 	private Difficultys difficultylevel;
 
@@ -12,12 +17,12 @@ public class Difficulty implements Comparable<Difficulty> {
 	
 	protected int amountOfEnemies;
 
-	//______________________________________________________METHODS___________________________________________________________
+	//Methods_________________________________________________________________________________________________________________
 
 	/**
 	 * The constructor of the levels of the game <br><br>
-	 * @param name The name of the level <br><br>
-	 * @param difficulty The difficulty of the level <br><br>
+	 * @param difficultylevel The difficulty of the level <br><br>
+	 * @param amountOfEnemies The amount of enemies the level <br><br>
 	 */
 
 	public Difficulty(Difficultys difficultylevel, int amountOfEnemies) {
@@ -87,11 +92,11 @@ public class Difficulty implements Comparable<Difficulty> {
 	 * <b>Pre: </b> The current level must not be null <br><br>
 	 * <b>Pre: </b> The new level must not be null <br><br>
 	 * <b>Post: </b> A new level has been linked to the current level <br><br>
-	 * @param newLeftLevel The level that is going to be linked at the left of the current level <br><br>
+	 * @param left The level that is going to be linked at the left of the current level <br><br>
 	 */
 	
-	public void setLeft(Difficulty newLeftLevel) {
-		this.left = newLeftLevel;
+	public void setLeft(Difficulty left) {
+		this.left = left;
 	}
 
 	//________________________________________________________________________________________________________________
@@ -104,8 +109,8 @@ public class Difficulty implements Comparable<Difficulty> {
 	 * @param newRightLevel The level that is going to be linked at the right of the current level <br><br>
 	 */
 	
-	public void setRight(Difficulty newRightLevel) {
-		this.right = newRightLevel;
+	public void setRight(Difficulty right) {
+		this.right = right;
 	}
 
 	//_________________________________________________________________________________________________________________________________________

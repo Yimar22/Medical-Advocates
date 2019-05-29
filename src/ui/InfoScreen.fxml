@@ -3,17 +3,17 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="477.0" prefWidth="618.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.InfoScreenController">
    <children>
       <ImageView fitHeight="477.0" fitWidth="636.0">
          <image>
-            <Image url="@../../resources/images/fondomenu.jpg" />
+            <Image url="@../../resources/images/fondo.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="212.0" fitWidth="235.0" layoutX="401.0" layoutY="-46.0">
@@ -31,11 +31,13 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <Button layoutX="24.0" layoutY="403.0" mnemonicParsing="false" onAction="#searchNickName" style="-fx-background-radius: 80; -fx-background-color: lightblue; -fx-border-color: black; -fx-border-radius: 80;" text="Search NickName" />
-      <Button layoutX="145.0" layoutY="403.0" mnemonicParsing="false" onAction="#sortNickNames" style="-fx-background-radius: 80; -fx-background-color: lightblue; -fx-border-color: black; -fx-border-radius: 80;" text="Sort NickNames" />
-      <Button layoutX="145.0" layoutY="436.0" mnemonicParsing="false" onAction="#sortScores" style="-fx-background-radius: 80; -fx-background-color: lightblue; -fx-border-color: black; -fx-border-radius: 80;" text="Sort Scores" />
-      <Button layoutX="265.0" layoutY="403.0" mnemonicParsing="false" onAction="#SortLevel" style="-fx-background-radius: 80; -fx-background-color: lightblue; -fx-border-color: black; -fx-border-radius: 80;" text="SortLevel" />
-      <Button layoutX="24.0" layoutY="436.0" mnemonicParsing="false" onAction="#searchScore" style="-fx-background-radius: 80; -fx-background-color: lightblue; -fx-border-color: black; -fx-border-radius: 80;" text="Search Score" />
+      <Button layoutX="24.0" layoutY="423.0" mnemonicParsing="false" onAction="#searchNickName" style="-fx-background-radius: 80; -fx-background-color: lightblue; -fx-border-color: black; -fx-border-radius: 80;" text="Search NickName" />
+      <Button layoutX="349.0" layoutY="417.0" mnemonicParsing="false" onAction="#sortNickNames" prefHeight="25.0" prefWidth="112.0" style="-fx-background-radius: 80; -fx-background-color: lightblue; -fx-border-color: black; -fx-border-radius: 80;" text="Sort NickNames" />
+      <Button layoutX="470.0" layoutY="417.0" mnemonicParsing="false" onAction="#sortScores" style="-fx-background-radius: 80; -fx-background-color: lightblue; -fx-border-color: black; -fx-border-radius: 80;" text="Sort Scores" />
+      <Button layoutX="555.0" layoutY="417.0" mnemonicParsing="false" onAction="#SortLevel" style="-fx-background-radius: 80; -fx-background-color: lightblue; -fx-border-color: black; -fx-border-radius: 80;" text="SortLevel" />
+      <Button layoutX="197.0" layoutY="423.0" mnemonicParsing="false" onAction="#searchScore" style="-fx-background-radius: 80; -fx-background-color: lightblue; -fx-border-color: black; -fx-border-radius: 80;" text="Search Score" />
       <Button layoutY="1.0" mnemonicParsing="false" onAction="#backScene" style="-fx-background-radius: 80; -fx-background-color: lightblue; -fx-border-color: black; -fx-border-radius: 80;" text="BACK" />
+      <TextField fx:id="tfNickName" layoutX="19.0" layoutY="391.0" prefHeight="25.0" prefWidth="122.0" />
+      <TextField fx:id="tfScores" layoutX="179.0" layoutY="391.0" prefHeight="25.0" prefWidth="122.0" />
    </children>
 </AnchorPane>

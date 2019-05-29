@@ -34,11 +34,11 @@
             <Image url="@../../resources/images/doctor-removebg.png" />
          </image>
       </ImageView>
-      <Label fx:id="lbDialog" layoutX="331.0" layoutY="105.0" prefHeight="66.0" prefWidth="88.0">
+      <Label fx:id="lbDialog" layoutX="337.0" layoutY="105.0" prefHeight="66.0" prefWidth="82.0">
          <font>
             <Font size="11.0" />
          </font></Label>
-      <Label fx:id="lbDialog2" layoutX="238.0" layoutY="114.0" />
+      <Label fx:id="lbDialog2" layoutX="226.0" layoutY="114.0" prefHeight="66.0" prefWidth="67.0" />
       <Button layoutX="526.0" layoutY="361.0" mnemonicParsing="false" onAction="#nextScene" style="-fx-background-radius: 80; -fx-background-color: lightblue; -fx-border-color: black; -fx-border-radius: 80;" text="Next" />
    </children>
 </AnchorPane>

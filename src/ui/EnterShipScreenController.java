@@ -2,6 +2,7 @@ package ui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -11,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -24,11 +26,18 @@ public class EnterShipScreenController {
 	@FXML
 	private URL location;
 
+
+	
 	@FXML
 	private ImageView user;
 
 	@FXML
 	private ImageView ship;
+	
+	private Image laserImage;
+	private Node hero;
+	private ArrayList<Node> laser= new ArrayList<Node>(); 
+	
 
 	@FXML
 	void initialize() {
@@ -42,6 +51,8 @@ public class EnterShipScreenController {
 		GameScreenController gc = loader.getController();
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		double width= gc.getAp().getMaxWidth();
+		laserImage=new Image("file:images/laser.png");
 		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent e) {
@@ -82,8 +93,17 @@ public class EnterShipScreenController {
 						e1.printStackTrace();
 					}
 				}else if(e.getCode().equals(KeyCode.SPACE)) {
-					gc.preShoot();
-				
+					ImageView aLaser = new ImageView(laserImage);
+					Node neLaser = aLaser;
+					neLaser.relocate(gc.getShip().getLayoutX()+gc.getShip().getBoundsInLocal().getWidth(), gc.getShip().getLayoutY());
+					laser.add(neLaser);
+					gc.getAp().getChildren().add(neLaser);
+					for(int i=0;i<laser.size();i++) {
+						if(laser.get(i).getLayoutX()<width) {
+							laser.get(i).relocate(laser.get(i).getLayoutX()+1,laser.get(i).getLayoutY());
+						}else laser.remove(i);
+					}
+
 				/*else if(e.getCode().equals(KeyCode.L)||e.getCode().equals(KeyCode.Q)) {
 					atack = new AtackThread(gc);
 					atack.start();

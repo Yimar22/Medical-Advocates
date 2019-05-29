@@ -2,14 +2,19 @@ package ui;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import model.Difficulty;
+import model.Difficultys;
+import model.EasyLevel;
+import model.Game;
+import model.HardLevel;
+import model.HardcoreLevel;
+import model.MediumLevel;
+import model.Player;
 
 
 
@@ -24,31 +29,34 @@ public class GameScreenController{
 	@FXML
 	private ImageView user;
 
-	@FXML
-	private ImageView ship;
+	@FXML ImageView ship;
 
 	@FXML
 	private AnchorPane ap;
 	
-	private Group board;
+	private Game game;
+	private Player player;
+	private Difficulty difficulty;
 	
-	
-	private static final double W = 800, H = 560;
 
-	private static final String SHIP =
-			"/resources/images/nave-removebg.png";
-	private static final String WEAPON =
-			"file:///C:/Users/yimar/eclipse-workspace/Medical-Advocates/resources/images/laser.png";
-	
-	private Image shipImage, weaponImage;
-	private Node  shipp;
-	private ArrayList<Node> weapons = new ArrayList<Node>();
 	
 
 	@FXML
 	void initialize() {
-		weaponImage = new Image(WEAPON);
-		board = new Group();
+		try {
+			game = new Game();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+
+		difficulty = game.chooseRandomLevel();
+		System.out.println(difficulty.getDifficultylevel());
+		generateEnemies();
+		player = new Player("Prueba", 0);
+
+		/*String score = String.valueOf(player.getScore());
+		scoreLabel.setText(score);*/
 	}
 
 	public void movePlayer(int movement) throws IOException {
@@ -67,6 +75,7 @@ public class GameScreenController{
 		else if(movement==6) { 
 			ship.setRotate(ship.getRotate()-5);
 		}	
+		
 
 /*		if(ship.getLayoutX() > ap.getMaxWidth())
 			ship.setLayoutX(0);
@@ -79,7 +88,136 @@ public class GameScreenController{
 			ship.setLayoutY(ap.getMaxHeight());
 	*/}
 	
-	public void shoot(int delta) {
+	public void generateEnemies() {
+		ImageView image1;
+		Image i1;
+
+		ImageView image2;
+		Image i2;
+
+		ImageView image3;
+		Image i3;
+
+		if (difficulty.getDifficultylevel().equals(Difficultys.EASY)) {
+
+			EasyLevel easyLevel = (EasyLevel) difficulty;
+
+			int sep = 400/easyLevel.getAmountOfEnemies();
+
+			for (int i = 0; i < easyLevel.getAmountOfEnemies(); i++) {
+				image1 = new ImageView();
+				i1 = new Image("images/bacteria1.png");
+				image1.setImage(i1);
+				image1.setFitHeight(30);
+				image1.setFitWidth(30);
+				image1.setLayoutX(sep*(i+1));
+				image1.setLayoutY(170);
+
+				ap.getChildren().add(image1);
+
+			}
+
+		}else if (difficulty.getDifficultylevel().equals(Difficultys.MEDIUM)) {
+
+			MediumLevel mediumLevel = (MediumLevel) difficulty;
+
+			int sep = 400/mediumLevel.getAmountOfEnemies();
+			int sep2 = 400/mediumLevel.getAmountOfBoss();
+
+			for (int i = 0; i < mediumLevel.getAmountOfEnemies(); i++) {
+				image1 = new ImageView();
+				i1 = new Image("images/bacteria1.png");
+				image1.setImage(i1);
+				image1.setFitHeight(30);
+				image1.setFitWidth(30);
+				image1.setLayoutX(sep*(i+1));
+				image1.setLayoutY(170);
+
+				ap.getChildren().add(image1);
+
+			}
+
+			for (int i = 0; i < mediumLevel.getAmountOfBoss(); i++) {
+				image2 = new ImageView();
+				i2 = new Image("images/boss1.gif");
+				image2.setImage(i2);
+				image2.setFitHeight(30);
+				image2.setFitWidth(30);
+				image2.setLayoutX(sep2*(i+1));
+				image2.setLayoutY(120);
+
+				ap.getChildren().add(image2);
+
+			}
+
+
+		}else if(difficulty.getDifficultylevel().equals(Difficultys.HARD)){
+
+			HardLevel hardLevel = (HardLevel) difficulty;
+
+			int sep = 400/hardLevel.getAmountOfEnemies();
+			int sep2 = 400/hardLevel.getAmountOfBoss();
+
+			for (int i = 0; i < hardLevel.getAmountOfEnemies(); i++) {
+				image1 = new ImageView();
+				i1 = new Image("images/bacteria1.png");
+				image1.setImage(i1);
+				image1.setFitHeight(30);
+				image1.setFitWidth(30);
+				image1.setLayoutX(sep*(i+1));
+				image1.setLayoutY(170);
+
+				ap.getChildren().add(image1);
+
+			}
+
+			for (int i = 0; i < hardLevel.getAmountOfBoss(); i++) {
+				image2 = new ImageView();
+				i2 = new Image("images/boss1.gif");
+				image2.setImage(i2);
+				image2.setFitHeight(30);
+				image2.setFitWidth(30);
+				image2.setLayoutX(sep2*(i+1));
+				image2.setLayoutY(120);
+
+				ap.getChildren().add(image2);
+			}
+
+		}else {
+			HardcoreLevel hardLevel = (HardcoreLevel) difficulty;
+
+			int sep = 400/hardLevel.getAmountOfEnemies();
+			int sep2 = 400/hardLevel.getAmountOfBoss();
+
+			for (int i = 0; i < hardLevel.getAmountOfEnemies(); i++) {
+				image1 = new ImageView();
+				i1 = new Image("images/bacteria1.png");
+				image1.setImage(i1);
+				image1.setFitHeight(30);
+				image1.setFitWidth(30);
+				image1.setLayoutX(sep*(i+1));
+				image1.setLayoutY(170);
+
+				ap.getChildren().add(image1);
+
+			}
+
+			for (int i = 0; i < hardLevel.getAmountOfBoss(); i++) {
+				image2 = new ImageView();
+				i2 = new Image("images/boss1.gif");
+				image2.setImage(i2);
+				image2.setFitHeight(30);
+				image2.setFitWidth(30);
+				image2.setLayoutX(sep2*(i+1));
+				image2.setLayoutY(120);
+
+				ap.getChildren().add(image2);
+			}
+		}
+
+	}
+	
+/*	public void shoot(int delta) {
 		for(int i=0;i<weapons.size();i++) {
 			if(weapons.get(i).getLayoutX()<W) {
 				weapons.get(i).relocate(weapons.get(i).getLayoutX()+delta,weapons.get(i).getLayoutY());
@@ -87,14 +225,25 @@ public class GameScreenController{
 		}
 	}
 	
-	public void preShoot() {
+/*	public void preShoot() {
 		ImageView aWeapon= new ImageView(weaponImage);
 		Node newWeapon = aWeapon;
 		newWeapon.relocate(ship.getLayoutX()+ship.getBoundsInLocal().getWidth(), ship.getLayoutY());
 		weapons.add(newWeapon);
 		board.getChildren().add(newWeapon);
 		shoot(10);
+	}*/
+
+	public ImageView getShip() {
+		return ship;
 	}
+
+	public AnchorPane getAp() {
+		return ap;
+	}
+
+
+	
 
 	/*public void move(int key) {
 		if(key==4) {
